@@ -5,13 +5,13 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "ClassroomManagement", "ClassroomManagement\ClassroomManagement.sfproj", "{D0DE0E9A-36C4-4861-B451-D9F15FB9E84E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate", "Delegate\Delegate.csproj", "{8C25FD65-8751-43F6-BEEC-B5157C815197}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate.Interfaces", "Delegate.Interfaces\Delegate.Interfaces.csproj", "{9E38994C-4A4F-4D3A-A196-612FF27B4EF5}"
-EndProject
 Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "ClassroomManagementARM", "ClassroomManagementARM\ClassroomManagementARM\ClassroomManagementARM.deployproj", "{BEF13782-6F00-40CE-9985-6276E84A8E36}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classroom", "Classroom\Classroom.csproj", "{DED133F3-2BD5-4355-A085-448A77C3863A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student", "Student\Student.csproj", "{872F8F2B-3CB0-4219-B7ED-63DBE32BD7D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student.Interfaces", "Student.Interfaces\Student.Interfaces.csproj", "{8D936109-BFF4-4D5A-82A7-9096DFC34D54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,18 +29,6 @@ Global
 		{D0DE0E9A-36C4-4861-B451-D9F15FB9E84E}.Release|x64.ActiveCfg = Release|x64
 		{D0DE0E9A-36C4-4861-B451-D9F15FB9E84E}.Release|x64.Build.0 = Release|x64
 		{D0DE0E9A-36C4-4861-B451-D9F15FB9E84E}.Release|x64.Deploy.0 = Release|x64
-		{8C25FD65-8751-43F6-BEEC-B5157C815197}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{8C25FD65-8751-43F6-BEEC-B5157C815197}.Debug|x64.ActiveCfg = Debug|x64
-		{8C25FD65-8751-43F6-BEEC-B5157C815197}.Debug|x64.Build.0 = Debug|x64
-		{8C25FD65-8751-43F6-BEEC-B5157C815197}.Release|Any CPU.ActiveCfg = Release|x64
-		{8C25FD65-8751-43F6-BEEC-B5157C815197}.Release|x64.ActiveCfg = Release|x64
-		{8C25FD65-8751-43F6-BEEC-B5157C815197}.Release|x64.Build.0 = Release|x64
-		{9E38994C-4A4F-4D3A-A196-612FF27B4EF5}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{9E38994C-4A4F-4D3A-A196-612FF27B4EF5}.Debug|x64.ActiveCfg = Debug|x64
-		{9E38994C-4A4F-4D3A-A196-612FF27B4EF5}.Debug|x64.Build.0 = Debug|x64
-		{9E38994C-4A4F-4D3A-A196-612FF27B4EF5}.Release|Any CPU.ActiveCfg = Release|x64
-		{9E38994C-4A4F-4D3A-A196-612FF27B4EF5}.Release|x64.ActiveCfg = Release|x64
-		{9E38994C-4A4F-4D3A-A196-612FF27B4EF5}.Release|x64.Build.0 = Release|x64
 		{BEF13782-6F00-40CE-9985-6276E84A8E36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BEF13782-6F00-40CE-9985-6276E84A8E36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEF13782-6F00-40CE-9985-6276E84A8E36}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -55,6 +43,18 @@ Global
 		{DED133F3-2BD5-4355-A085-448A77C3863A}.Release|Any CPU.ActiveCfg = Release|x64
 		{DED133F3-2BD5-4355-A085-448A77C3863A}.Release|x64.ActiveCfg = Release|x64
 		{DED133F3-2BD5-4355-A085-448A77C3863A}.Release|x64.Build.0 = Release|x64
+		{872F8F2B-3CB0-4219-B7ED-63DBE32BD7D6}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{872F8F2B-3CB0-4219-B7ED-63DBE32BD7D6}.Debug|x64.ActiveCfg = Debug|x64
+		{872F8F2B-3CB0-4219-B7ED-63DBE32BD7D6}.Debug|x64.Build.0 = Debug|x64
+		{872F8F2B-3CB0-4219-B7ED-63DBE32BD7D6}.Release|Any CPU.ActiveCfg = Release|x64
+		{872F8F2B-3CB0-4219-B7ED-63DBE32BD7D6}.Release|x64.ActiveCfg = Release|x64
+		{872F8F2B-3CB0-4219-B7ED-63DBE32BD7D6}.Release|x64.Build.0 = Release|x64
+		{8D936109-BFF4-4D5A-82A7-9096DFC34D54}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{8D936109-BFF4-4D5A-82A7-9096DFC34D54}.Debug|x64.ActiveCfg = Debug|x64
+		{8D936109-BFF4-4D5A-82A7-9096DFC34D54}.Debug|x64.Build.0 = Debug|x64
+		{8D936109-BFF4-4D5A-82A7-9096DFC34D54}.Release|Any CPU.ActiveCfg = Release|x64
+		{8D936109-BFF4-4D5A-82A7-9096DFC34D54}.Release|x64.ActiveCfg = Release|x64
+		{8D936109-BFF4-4D5A-82A7-9096DFC34D54}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

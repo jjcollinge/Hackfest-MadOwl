@@ -9,6 +9,9 @@
       <Parameter Name="DelegateActorService_TargetReplicaSetSize" DefaultValue="3" />
    </Parameters>
    <ServiceManifestImport>
+     <ServiceManifestRef ServiceManifestName="StudentPkg" ServiceManifestVersion="1.0.0" />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
      <ServiceManifestRef ServiceManifestName="ClassroomPkg" ServiceManifestVersion="1.0.0" />
      <ConfigOverrides />
    </ServiceManifestImport>
