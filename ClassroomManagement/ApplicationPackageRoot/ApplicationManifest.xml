@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ClassroomManagementType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <Parameters>
+      <Parameter Name="DelegateActorService_PartitionCount" DefaultValue="10" />
+      <Parameter Name="DelegateActorService_MinReplicaSetSize" DefaultValue="2" />
+      <Parameter Name="DelegateActorService_TargetReplicaSetSize" DefaultValue="3" />
+   </Parameters>
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="DelegatePkg" ServiceManifestVersion="1.0.0" />
+   </ServiceManifestImport>
+   <DefaultServices>
+      <Service Name="DelegateActorService" GeneratedIdRef="a8966a4a-662c-4855-9e5a-f42bd2a63408|Persisted">
+         <StatefulService ServiceTypeName="DelegateActorServiceType" TargetReplicaSetSize="[DelegateActorService_TargetReplicaSetSize]" MinReplicaSetSize="[DelegateActorService_MinReplicaSetSize]">
+            <UniformInt64Partition PartitionCount="[DelegateActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+         </StatefulService>
+      </Service>
+   </DefaultServices>
+</ApplicationManifest>
