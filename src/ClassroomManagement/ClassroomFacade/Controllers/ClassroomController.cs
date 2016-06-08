@@ -17,6 +17,7 @@ namespace ClassroomFacade.Controllers
 {
     public class ClassroomController : ApiController
     {
+        // API Test run
         [HttpGet]
         public async Task<ClassroomModel> Get(string className)
         {
@@ -88,8 +89,6 @@ namespace ClassroomFacade.Controllers
             var queryActor = ActorProxy.Create<IQueryActor>(new ActorId("ListActor"));
             queryActor.AddClassroom(value.Id);
 
-
-
             ClassActor.SetPresenter(value.Presenter);
             ClassActor.SetNumStepsCountAsync(value.NumSteps);
 
@@ -106,11 +105,7 @@ namespace ClassroomFacade.Controllers
                     ClassActor.RegisterStudentAsync(student.Username);
                 }
             }
-
-            // ClassActor.RegisterStudentAsync("Will");
-            // ClassActor.RegisterStudentAsync("Jamie");
-            // ClassActor.RegisterStudentAsync("Bianca");
-
+            
         }
     }
 }
