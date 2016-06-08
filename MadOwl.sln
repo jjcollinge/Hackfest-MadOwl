@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student", "Student\Student.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student.Interfaces", "Student.Interfaces\Student.Interfaces.csproj", "{8D936109-BFF4-4D5A-82A7-9096DFC34D54}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4AB5E995-2481-4B34-8CDE-9DE895CA1A42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{772D1B8E-84DE-4AA0-A54A-4087C1CDFA99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,5 +62,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D0DE0E9A-36C4-4861-B451-D9F15FB9E84E} = {4AB5E995-2481-4B34-8CDE-9DE895CA1A42}
+		{BEF13782-6F00-40CE-9985-6276E84A8E36} = {772D1B8E-84DE-4AA0-A54A-4087C1CDFA99}
+		{DED133F3-2BD5-4355-A085-448A77C3863A} = {4AB5E995-2481-4B34-8CDE-9DE895CA1A42}
+		{872F8F2B-3CB0-4219-B7ED-63DBE32BD7D6} = {4AB5E995-2481-4B34-8CDE-9DE895CA1A42}
+		{8D936109-BFF4-4D5A-82A7-9096DFC34D54} = {4AB5E995-2481-4B34-8CDE-9DE895CA1A42}
 	EndGlobalSection
 EndGlobal
