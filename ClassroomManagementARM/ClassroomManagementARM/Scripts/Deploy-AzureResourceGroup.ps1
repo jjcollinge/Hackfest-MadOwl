@@ -4,12 +4,12 @@
 
 Param(
     [string] [Parameter(Mandatory=$true)] $ResourceGroupLocation,
-    [string] $ResourceGroupName = 'ClassroomManagementARM',
+    [string] $ResourceGroupName = 'RG-ClassroomManagement',
     [switch] $UploadArtifacts,
     [string] $StorageAccountName,
     [string] $StorageContainerName = $ResourceGroupName.ToLowerInvariant() + '-stageartifacts',
-    [string] $TemplateFile = '..\Templates\ServiceFabricCluster.json',
-    [string] $TemplateParametersFile = '..\Templates\ServiceFabricCluster.parameters.json',
+    [string] $TemplateFile = '..\Templates\azuredeploy.json',
+    [string] $TemplateParametersFile = '..\Templates\azuredeploy.parameters.json',
     [string] $ArtifactStagingDirectory = '..\bin\Debug\staging',
     [string] $DSCSourceFolder = '..\DSC'
 )
