@@ -1,3 +1,6 @@
 /* #5cb85c */
 
-html, body { background: #fff url("/images/bg-madowl.png") no-repeat fixed center; background-size: 100% 100%;  }
+body#init { background: #fff url("/images/bg-madowl.png") no-repeat fixed center; background-size: 100% 100%;  }
+
+.jumbotron img, .jumbotron .input-lg, .jumbotron .btn { width: 100%; text-align: center; }
+.jumbotron .input-lg { font-size: 2em; }
