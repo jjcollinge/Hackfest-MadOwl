@@ -9,15 +9,12 @@ document.getElementById("btn-join").addEventListener("click", function(){
     
     $.getJSON( "dummy.json", function( data ) {
 
-        console.log(pin);
-        console.log(data.PinCode);
-
         if(pin == data.PinCode){
             $('#notice-success').show();
             setTimeout(function() { 
                 $('#notice-success').fadeOut(); 
             }, 5000);
-            window.location.replace("userapp.html?pin="+data.PinCode+"&name="+username+"&hol="+data.Name+"&steps="+data.StepCount);
+            window.location.replace("userapp.html?pin="+encodeURIComponent(data.PinCode)+"&name="+encodeURIComponent(username)+"&hol="+encodeURIComponent(data.Name)+"&steps="+encodeURIComponent(data.StepCount));
         } else {
             $('#notice-fail').show();
             setTimeout(function() { 
