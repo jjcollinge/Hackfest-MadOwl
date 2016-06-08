@@ -7,15 +7,20 @@
          For example: <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000" />
 
        Example showing parameters for a cluster that uses certificate security:
-       <ClusterConnectionParameters ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
+       
+         -->
+       <ClusterConnectionParameters ConnectionEndpoint="madowlkeyvault.westeurope.cloudapp.azure.com:19000"
                                     X509Credential="true"
-                                    ServerCertThumbprint="0123456789012345678901234567890123456789"
+                                    ServerCertThumbprint="850A278CE7364C9E88B72F65FD38304F1137E61E"
                                     FindType="FindByThumbprint"
-                                    FindValue="9876543210987654321098765432109876543210"
+                                    FindValue="850A278CE7364C9E88B72F65FD38304F1137E61E"
                                     StoreLocation="CurrentUser"
                                     StoreName="My" />
 
-  -->
-  <ClusterConnectionParameters ConnectionEndpoint="" />
+
+  <!--<ClusterConnectionParameters ConnectionEndpoint="madowlkeyvault.westeurope.cloudapp.azure.com:19000" />-->
   <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+  <UpgradeDeployment Mode="Monitored" Enabled="false">
+    <Parameters FailureAction="Rollback" Force="True" />
+  </UpgradeDeployment>
 </PublishProfile>
