@@ -13,6 +13,13 @@ namespace Student.Interfaces
     /// </summary>
     public interface IStudent : IActor
     {
+
+        Task<string> GetUsernameAsync();
+        Task SetUsernameAsync(string username);
+
+        Task<int> GetCurrentStepAsync();
+        Task SetCurrentStepAsync(int currentStep);
+
         /// <summary>
         /// TODO: Replace with your own actor method.
         /// </summary>

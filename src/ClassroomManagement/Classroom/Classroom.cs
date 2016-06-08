@@ -21,6 +21,66 @@ namespace Classroom
     [StatePersistence(StatePersistence.Persisted)]
     internal class Classroom : Actor, IClassroom
     {
+
+        public async Task<int> GetNumStepsAsync()
+        {
+            return await this.StateManager.GetStateAsync<int>("NumSteps");
+        }
+
+        public async Task<string> GetPresenter()
+        {
+            return await this.StateManager.GetStateAsync<string>("Presenter");
+        }
+
+        public async Task<IList<string>> GetStudents()
+        {
+            return await this.StateManager.GetStateAsync<IList<string>>("Students");
+        }
+
+        public async Task RegisterStudent(string student)
+        {
+
+            var tempStudents = await this.StateManager.TryGetStateAsync<IList<string>>("Students");
+
+            if (tempStudents.HasValue)
+            {
+
+                tempStudents.Value.Add(student);
+
+                await this.StateManager.SetStateAsync<IList<string>>("Students", tempStudents.Value);
+            }
+            else
+            {
+                var otherTempStudents = new List<string>();
+
+                otherTempStudents.Add(student);
+
+                await this.StateManager.SetStateAsync<IList<string>>("Students", otherTempStudents);
+
+            }
+        }
+
+        public async Task SetNumStepsCountAsync(int numSteps)
+        {
+
+            await this.StateManager.SetStateAsync<int>("NumSteps",numSteps);
+                        
+        }
+
+        public async Task SetPresenter(string presenter)
+        {
+            await this.StateManager.SetStateAsync<string>("Presenter", presenter);
+        }
+
+        public async Task SetStudents(IList<string> students)
+        {
+
+            await this.StateManager.SetStateAsync<IList<string>>("Students", students);
+
+
+        }
+        
+        
         /// <summary>
         /// This method is called whenever an actor is activated.
         /// An actor is activated the first time any of its methods are invoked.
@@ -34,28 +94,11 @@ namespace Classroom
             // Any serializable object can be saved in the StateManager.
             // For more information, see http://aka.ms/servicefabricactorsstateserialization
 
+
             return this.StateManager.TryAddStateAsync("count", 0);
-        }
 
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <returns></returns>
-        Task<int> IClassroom.GetCountAsync()
-        {
-            return this.StateManager.GetStateAsync<int>("count");
         }
-
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        Task IClassroom.SetCountAsync(int count)
-        {
-            // Requests are not guaranteed to be processed in order nor at most once.
-            // The update function here verifies that the incoming count is greater than the current count to preserve order.
-            return this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
-        }
+        
+ 
     }
 }

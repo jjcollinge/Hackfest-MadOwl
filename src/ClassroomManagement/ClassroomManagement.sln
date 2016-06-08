@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classroom", "Classroom\Clas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classroom.Interfaces", "Classroom.Interfaces\Classroom.Interfaces.csproj", "{FA8D5B00-1076-4D0C-87AB-2BB8047079A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassroomFacade", "ClassroomFacade\ClassroomFacade.csproj", "{9FD4E302-B2B4-47B4-9565-658AB1C4B25F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,10 @@ Global
 		{FA8D5B00-1076-4D0C-87AB-2BB8047079A5}.Debug|x64.Build.0 = Debug|x64
 		{FA8D5B00-1076-4D0C-87AB-2BB8047079A5}.Release|x64.ActiveCfg = Release|x64
 		{FA8D5B00-1076-4D0C-87AB-2BB8047079A5}.Release|x64.Build.0 = Release|x64
+		{9FD4E302-B2B4-47B4-9565-658AB1C4B25F}.Debug|x64.ActiveCfg = Debug|x64
+		{9FD4E302-B2B4-47B4-9565-658AB1C4B25F}.Debug|x64.Build.0 = Debug|x64
+		{9FD4E302-B2B4-47B4-9565-658AB1C4B25F}.Release|x64.ActiveCfg = Release|x64
+		{9FD4E302-B2B4-47B4-9565-658AB1C4B25F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

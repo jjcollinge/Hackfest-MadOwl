@@ -1,0 +1,19 @@
+<div *ngIf="classroom">
+  <h2>{{classroom.Name}} details</h2>
+  <div>
+    <label>Step count: </label>{{classroom.StepCount}}</div>
+  <div>
+  <div>
+    <label>Pin number: </label>{{classroom.PinCode}}</div>
+  <div>
+  <div>
+    <label>Content URL: </label><nav><a href="{{classroom.contentUri}}">{{classroom.ContentUri}}</a></nav>
+  </div>
+
+
+  <h3>List of students</h3>
+  <ul class="students">
+      <li *ngFor="#student of classroom.Students">
+          <span class="badge">{{student.Name}}</span> {{student.CurrentStep}}
+      </li>
+  </ul>

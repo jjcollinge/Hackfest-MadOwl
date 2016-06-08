@@ -13,17 +13,16 @@ namespace Classroom.Interfaces
     /// </summary>
     public interface IClassroom : IActor
     {
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <returns></returns>
-        Task<int> GetCountAsync();
+        Task<int> GetNumStepsAsync();
+        Task SetNumStepsCountAsync(int numSteps);
+        
+        Task<string> GetPresenter();
+        Task SetPresenter(string presenter);
 
-        /// <summary>
-        /// TODO: Replace with your own actor method.
-        /// </summary>
-        /// <param name="count"></param>
-        /// <returns></returns>
-        Task SetCountAsync(int count);
+        Task<IList<string>> GetStudents();
+        Task SetStudents(IList<string> students);
+
+        Task RegisterStudent(string student);
+
     }
 }
