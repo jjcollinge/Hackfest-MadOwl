@@ -24,5 +24,10 @@ namespace MadOwlAdminWebApi.Controllers
             return classroom;
         }
 
+        public void Post([FromBody]Classroom value)
+        {
+            // TODO: create a new classroom
+        }
+
     }
 }
