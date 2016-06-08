@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ClassroomManagementType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
+     <Parameter Name="ServiceLocator_InstanceCount" DefaultValue="-1" />
+     <Parameter Name="ServiceLocator_InstanceCount" DefaultValue="-1" />
      <Parameter Name="Classroom_MinReplicaSetSize" DefaultValue="2" />
      <Parameter Name="Classroom_PartitionCount" DefaultValue="1" />
      <Parameter Name="Classroom_TargetReplicaSetSize" DefaultValue="3" />
@@ -9,6 +11,17 @@
       <Parameter Name="DelegateActorService_TargetReplicaSetSize" DefaultValue="3" />
    </Parameters>
    <ServiceManifestImport>
+     <ServiceManifestRef ServiceManifestName="ServiceLocatorPkg" ServiceManifestVersion="1.0.0" />
+     <ConfigOverrides />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
+     <ServiceManifestRef ServiceManifestName="ServiceLocatorPkg" ServiceManifestVersion="1.0.0" />
+     <ConfigOverrides />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
+     <ServiceManifestRef ServiceManifestName="StudentPkg" ServiceManifestVersion="1.0.0" />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
      <ServiceManifestRef ServiceManifestName="ClassroomPkg" ServiceManifestVersion="1.0.0" />
      <ConfigOverrides />
    </ServiceManifestImport>
@@ -16,6 +29,16 @@
       <ServiceManifestRef ServiceManifestName="DelegatePkg" ServiceManifestVersion="1.0.0" />
    </ServiceManifestImport>
    <DefaultServices>
+     <Service Name="ServiceLocator">
+       <StatelessService ServiceTypeName="ServiceLocatorType" InstanceCount="[ServiceLocator_InstanceCount]">
+         <SingletonPartition />
+       </StatelessService>
+     </Service>
+     <Service Name="ServiceLocator">
+       <StatelessService ServiceTypeName="ServiceLocatorType" InstanceCount="[ServiceLocator_InstanceCount]">
+         <SingletonPartition />
+       </StatelessService>
+     </Service>
      <Service Name="Classroom">
        <StatefulService ServiceTypeName="ClassroomType" TargetReplicaSetSize="[Classroom_TargetReplicaSetSize]" MinReplicaSetSize="[Classroom_MinReplicaSetSize]">
          <UniformInt64Partition PartitionCount="[Classroom_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />

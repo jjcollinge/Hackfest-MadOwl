@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors.Runtime;
 
-namespace Delegate
+namespace Student
 {
-    [EventSource(Name = "MyCompany-ClassroomManagement-Delegate")]
+    [EventSource(Name = "MyCompany-ClassroomManagement-Student")]
     internal sealed class ActorEventSource : EventSource
     {
         public static readonly ActorEventSource Current = new ActorEventSource();

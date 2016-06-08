@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors.Runtime;
 
-namespace Delegate
+namespace Student
 {
     internal static class Program
     {
@@ -21,8 +21,8 @@ namespace Delegate
                 // are automatically populated when you build this project.
                 // For more information, see http://aka.ms/servicefabricactorsplatform
 
-                ActorRuntime.RegisterActorAsync<Delegate>(
-                   (context, actorType) => new ActorService(context, actorType, () => new Delegate())).GetAwaiter().GetResult();
+                ActorRuntime.RegisterActorAsync<Student>(
+                   (context, actorType) => new ActorService(context, actorType, () => new Student())).GetAwaiter().GetResult();
 
                 Thread.Sleep(Timeout.Infinite);
             }

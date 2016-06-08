@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 using Microsoft.ServiceFabric.Actors.Client;
-using Delegate.Interfaces;
+using Student.Interfaces;
 
-namespace Delegate
+namespace Student
 {
     /// <remarks>
     /// This class represents an actor.
@@ -19,14 +19,20 @@ namespace Delegate
     ///  - None: State is kept in memory only and not replicated.
     /// </remarks>
     [StatePersistence(StatePersistence.Persisted)]
-    internal class Delegate : Actor, IDelegate
+    internal class Student : Actor, IStudent
     {
-        public Task Deregister()
+        // Properties
+        public string Username { get; set; }
+
+        // Data members
+        private int _currentStep { get; set; }
+
+        public Task Register()
         {
             throw new NotImplementedException();
         }
 
-        public Task Register()
+        public Task Unregister()
         {
             throw new NotImplementedException();
         }
