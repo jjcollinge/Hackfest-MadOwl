@@ -17,7 +17,7 @@ namespace ClassroomFacade.Controllers
 {
     public class ClassroomController : ApiController
     {
-        // API Test run
+        // Gets the data for a single Class
         [HttpGet]
         public async Task<ClassroomModel> Get(string className)
         {
@@ -56,12 +56,14 @@ namespace ClassroomFacade.Controllers
             return ClassModel;
 
         }
-
+        
+        // Get-Based update method, tracks progress of an individual student
         [HttpGet]
         public async Task<ClassroomModel> Get(string className, string studentName, int newStep)
         {
-            // Get the student
+            // Get or create the student
             var studentActor = ActorProxy.Create<IStudent>(new ActorId(studentName));
+            
             // Update the student's steps
             await studentActor.SetUsernameAsync(studentName);
             await studentActor.SetCurrentStepAsync(newStep);
@@ -69,16 +71,18 @@ namespace ClassroomFacade.Controllers
             // Return the main get view 
             return await this.Get(className);
         }
-
+        
+        // Registry, tracks the latest classes that are active
         [HttpGet]
         public async Task<List<string>> Get()
         {
             // Get the list of sessions
             var queryActor = ActorProxy.Create<IQueryActor>(new ActorId("ListActor"));
                     
-            return await queryActor.GetClassrooms(); ;
+            return await queryActor.GetClassrooms();
         }
 
+        // Receives and updates the class data in a single chunky POST
         [HttpPost]
         public void Post([FromBody]ClassroomModel value)
         {
@@ -89,9 +93,11 @@ namespace ClassroomFacade.Controllers
             var queryActor = ActorProxy.Create<IQueryActor>(new ActorId("ListActor"));
             queryActor.AddClassroom(value.Id);
 
+            // Set the class properties
             ClassActor.SetPresenter(value.Presenter);
             ClassActor.SetNumStepsCountAsync(value.NumSteps);
-
+            
+            // Add the required students and create the student actors
             var studentCache = ClassActor.GetStudentsAsync();
 
             foreach (var student in value.Students) 
