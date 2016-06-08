@@ -19,8 +19,7 @@ Invoke-AddCertToKeyVault -SubscriptionId $subid -ResourceGroupName $rg -Location
 #Value : 850A278CE7364C9E88B72F65FD38304F1137E61E
 
 #Name  : SourceVault
-#Value : /subscriptions/bc0b4843-fb66-4fa1-9e1b-6dbc8ec156a4/resourceGroups/madowlsf/providers/Microsoft.KeyVault/vaults/madowlk
-#        eyvault
+#Value : /subscriptions/bc0b4843-fb66-4fa1-9e1b-6dbc8ec156a4/resourceGroups/madowlsf/providers/Microsoft.KeyVault/vaults/madowlkeyvault
 
 #Name  : CertificateURL
 #Value : https://madowlkeyvault.vault.azure.net:443/secrets/madowlcert/6e137553919c4cf188a8562410c1522c

@@ -26,25 +26,24 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    <div class="container">
+    <div id="notice-success" class='alert alert-success'><strong>Great</strong>! PIN found!</div>
+    <div id="notice-fail" class='alert alert-danger'><strong>Oops</strong>, there is no classroom associated with this PIN.</div>
 
+    <div class="container">      
 
-      
       <form class="form-signin">
             <code class="owl">
                {ಠ,ಠ}<br />
                |)__)<br />
                -“-“-<br />
             </code>
-            <input type="text" placeholder="Classroom PIN" class="first form-control" required autofocus />
-            <input type="text" placeholder="Name" class="last form-control" required />
+            <input type="text" id="pin" placeholder="Classroom PIN" class="first form-control" required autofocus />
+            <input type="text" id="username" placeholder="Name" class="last form-control" required />
             <br />
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Join</button>
-
-            <ul />
+            <input type="button" class="btn btn-lg btn-primary btn-block" id="btn-join" value="Join" />
+            <div id="alerts"></div>
       </form>
-
+      
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
