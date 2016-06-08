@@ -4,5 +4,6 @@
       <Parameter Name="ClassroomFacade_InstanceCount" Value="1" />
       <Parameter Name="ClassroomActorService_PartitionCount" Value="1" />
       <Parameter Name="StudentActorService_PartitionCount" Value="1" />
+      <Parameter Name="QueryActorService_PartitionCount" Value="1" />
    </Parameters>
 </Application>

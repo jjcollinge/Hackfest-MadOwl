@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 using Microsoft.ServiceFabric.Actors.Client;
-using Student.Interfaces;
+using QueryActor.Interfaces;
 
-namespace Student
+namespace QueryActor
 {
     /// <remarks>
     /// This class represents an actor.
@@ -19,11 +19,21 @@ namespace Student
     ///  - None: State is kept in memory only and not replicated.
     /// </remarks>
     [StatePersistence(StatePersistence.Persisted)]
-    internal class Student : Actor, IStudent
+    internal class QueryActor : Actor, IQueryActor
     {
+        public async Task AddClassroom(string classroompin)
+        {
+            var oldstate = await this.StateManager.GetStateAsync<List<String>>("list");
+            oldstate.Add(classroompin);
 
-        public string Username { get; set; }
-        public int CurrentStep { get; set; }
+            await this.StateManager.SetStateAsync<List<String>>("list", oldstate);
+
+        }
+
+        public async Task<List<string>> GetClassrooms()
+        {
+            return await this.StateManager.GetStateAsync<List<String>>("list");
+        }
 
         /// <summary>
         /// This method is called whenever an actor is activated.
@@ -33,42 +43,18 @@ namespace Student
         {
             ActorEventSource.Current.ActorMessage(this, "Actor activated.");
 
+            if (!this.StateManager.TryGetStateAsync<List<string>>("list").Result.HasValue)
+            {
+                this.StateManager.SetStateAsync<List<String>>("list", new List<string>());
+            }
+
             // The StateManager is this actor's private state store.
             // Data stored in the StateManager will be replicated for high-availability for actors that use volatile or persisted state storage.
             // Any serializable object can be saved in the StateManager.
             // For more information, see http://aka.ms/servicefabricactorsstateserialization
 
-            if (!this.StateManager.TryGetStateAsync<string>("Username").Result.HasValue)
-            {
-
-                this.StateManager.SetStateAsync<string>("Username", "");
-                this.StateManager.SetStateAsync<int>("CurrentStep", 0);
-
-            }
-
             return this.StateManager.TryAddStateAsync("count", 0);
         }
-        
 
-        public Task<string> GetUsernameAsync()
-        {
-            return this.StateManager.GetStateAsync<string>("Username");
-        }
-
-        public Task SetUsernameAsync(string username)
-        {
-            return this.StateManager.SetStateAsync<string>("Username", username);
-        }
-
-        public Task<int> GetCurrentStepAsync()
-        {
-            return this.StateManager.GetStateAsync<int>("CurrentStep");
-        }
-
-        public Task SetCurrentStepAsync(int currentStep)
-        {
-            return this.StateManager.SetStateAsync<int>("CurrentStep", currentStep);
-
-        }
-    }
+         }
 }

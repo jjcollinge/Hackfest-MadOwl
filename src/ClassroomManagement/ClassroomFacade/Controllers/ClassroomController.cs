@@ -2,6 +2,7 @@
 using ClassroomFacade.Model;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Client;
+using QueryActor.Interfaces;
 using Student.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,14 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Results;
 
 namespace ClassroomFacade.Controllers
 {
     public class ClassroomController : ApiController
     {
         [HttpGet]
-        public async Task<string> Get(string className)
+        public async Task<ClassroomModel> Get(string className)
         {
             var ClassActor = ActorProxy.Create<IClassroom>(new ActorId(className));
 
@@ -39,47 +41,76 @@ namespace ClassroomFacade.Controllers
             {
                 // Get student actor
                 var studentActor = ActorProxy.Create<IStudent>(new ActorId(ClassStudent));
-
+                
                 // Create student POCO and adding to classroom students list
-                ((List<Model.Student>) ClassModel.Students).Add(new Model.Student()
-                { Username = await studentActor.GetUsernameAsync(), CurrentStep = await studentActor.GetCurrentStepAsync()}
-                );   
+                Model.Student thisStudent = new Model.Student();
+
+                thisStudent.Username = studentActor.GetActorId().ToString();
+                thisStudent.CurrentStep = await studentActor.GetCurrentStepAsync();
+
+                ClassModel.Students.Add(thisStudent);
+     
             }
 
-            return Newtonsoft.Json.JsonConvert.SerializeObject(ClassModel);
+            return ClassModel;
 
         }
 
         [HttpGet]
-        public async Task<string> Get(string className, string studentName, int newStep)
+        public async Task<ClassroomModel> Get(string className, string studentName, int newStep)
         {
             // Get the student
             var studentActor = ActorProxy.Create<IStudent>(new ActorId(studentName));
             // Update the student's steps
+            await studentActor.SetUsernameAsync(studentName);
             await studentActor.SetCurrentStepAsync(newStep);
 
+            // Return the main get view 
             return await this.Get(className);
+        }
+
+        [HttpGet]
+        public async Task<List<string>> Get()
+        {
+            // Get the list of sessions
+            var queryActor = ActorProxy.Create<IQueryActor>(new ActorId("ListActor"));
+                    
+            return await queryActor.GetClassrooms(); ;
         }
 
         [HttpPost]
         public void Post([FromBody]ClassroomModel value)
         {
 
-            // Comment to trigger CI build 
             var ClassActor = ActorProxy.Create<IClassroom>(new ActorId(value.Id));
+
+            // Add to the list of sessions
+            var queryActor = ActorProxy.Create<IQueryActor>(new ActorId("ListActor"));
+            queryActor.AddClassroom(value.Id);
+
+
 
             ClassActor.SetPresenter(value.Presenter);
             ClassActor.SetNumStepsCountAsync(value.NumSteps);
 
             var studentCache = ClassActor.GetStudentsAsync();
 
-            foreach (var student in value.Students)
+            foreach (var student in value.Students) 
             {
                 if (!studentCache.Result.Contains(student.Username))
                 {
+
+                    var studentActor = ActorProxy.Create<IStudent>(new ActorId(student.Username));
+                    studentActor.SetCurrentStepAsync(student.CurrentStep);
+                    studentActor.SetUsernameAsync(student.Username);
                     ClassActor.RegisterStudentAsync(student.Username);
                 }
             }
+
+            // ClassActor.RegisterStudentAsync("Will");
+            // ClassActor.RegisterStudentAsync("Jamie");
+            // ClassActor.RegisterStudentAsync("Bianca");
+
         }
     }
 }

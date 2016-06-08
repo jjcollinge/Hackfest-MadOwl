@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ClassroomFacade\ClassroomFacade.csproj" />
     <ProjectReference Include="..\Classroom\Classroom.csproj" />
+    <ProjectReference Include="..\QueryActor\QueryActor.csproj" />
     <ProjectReference Include="..\Student\Student.csproj" />
   </ItemGroup>
   <ItemGroup>

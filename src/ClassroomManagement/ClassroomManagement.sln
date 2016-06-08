@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classroom.Interfaces", "Cla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassroomFacade", "ClassroomFacade\ClassroomFacade.csproj", "{9FD4E302-B2B4-47B4-9565-658AB1C4B25F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryActor", "QueryActor\QueryActor.csproj", "{0CF2EEB0-925C-46C3-84AB-38339381C157}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryActor.Interfaces", "QueryActor.Interfaces\QueryActor.Interfaces.csproj", "{D5178F4E-8830-491B-9FB0-83FC47D0CF73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -47,6 +51,14 @@ Global
 		{9FD4E302-B2B4-47B4-9565-658AB1C4B25F}.Debug|x64.Build.0 = Debug|x64
 		{9FD4E302-B2B4-47B4-9565-658AB1C4B25F}.Release|x64.ActiveCfg = Release|x64
 		{9FD4E302-B2B4-47B4-9565-658AB1C4B25F}.Release|x64.Build.0 = Release|x64
+		{0CF2EEB0-925C-46C3-84AB-38339381C157}.Debug|x64.ActiveCfg = Debug|x64
+		{0CF2EEB0-925C-46C3-84AB-38339381C157}.Debug|x64.Build.0 = Debug|x64
+		{0CF2EEB0-925C-46C3-84AB-38339381C157}.Release|x64.ActiveCfg = Release|x64
+		{0CF2EEB0-925C-46C3-84AB-38339381C157}.Release|x64.Build.0 = Release|x64
+		{D5178F4E-8830-491B-9FB0-83FC47D0CF73}.Debug|x64.ActiveCfg = Debug|x64
+		{D5178F4E-8830-491B-9FB0-83FC47D0CF73}.Debug|x64.Build.0 = Debug|x64
+		{D5178F4E-8830-491B-9FB0-83FC47D0CF73}.Release|x64.ActiveCfg = Release|x64
+		{D5178F4E-8830-491B-9FB0-83FC47D0CF73}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
