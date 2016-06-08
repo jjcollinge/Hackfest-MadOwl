@@ -14,10 +14,10 @@
       <ConfigOverrides />
    </ServiceManifestImport>
    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="ClassroomPkg" ServiceManifestVersion="1.0.*" />
+      <ServiceManifestRef ServiceManifestName="ClassroomPkg" ServiceManifestVersion="1.0.0" />
    </ServiceManifestImport>
    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="StudentPkg" ServiceManifestVersion="1.0.*" />
+      <ServiceManifestRef ServiceManifestName="StudentPkg" ServiceManifestVersion="1.0.0" />
    </ServiceManifestImport>
    <DefaultServices>
       <Service Name="ClassroomFacade">
