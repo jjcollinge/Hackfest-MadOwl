@@ -65,13 +65,13 @@
       
       var classPIN = getQueryVariable("pin");
       var username = getQueryVariable("user");
-      var hol = getQueryVariable("hol");
+      var holTitle = getQueryVariable("hol");
       var numsteps = getQueryVariable("steps");  
       
       function loadClassData()
       {
         var className = document.getElementById("className");
-        className.innerHTML = hol;
+        className.innerHTML = holTitle;
 
         for(var i=0; i < numsteps; i++){
           addWayPoint(i);
@@ -131,7 +131,7 @@
         $.ajax({
             url: "https://example.com/api/",
             type: "POST",
-            data: { pin: pin, name: username, currentStep: currentStep },
+            data: { pin: classPIN, name: username, currentStep: currentStep },
             dataType: "json",
             success: function (result) {
                 switch (result) {
