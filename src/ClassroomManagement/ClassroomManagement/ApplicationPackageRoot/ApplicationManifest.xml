@@ -10,14 +10,14 @@
       <Parameter Name="StudentActorService_TargetReplicaSetSize" DefaultValue="3" />
    </Parameters>
    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="ClassroomFacadePkg" ServiceManifestVersion="1.0.0" />
+      <ServiceManifestRef ServiceManifestName="ClassroomFacadePkg" ServiceManifestVersion="1.0.*" />
       <ConfigOverrides />
    </ServiceManifestImport>
    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="ClassroomPkg" ServiceManifestVersion="1.0.0" />
+      <ServiceManifestRef ServiceManifestName="ClassroomPkg" ServiceManifestVersion="1.0.*" />
    </ServiceManifestImport>
    <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="StudentPkg" ServiceManifestVersion="1.0.0" />
+      <ServiceManifestRef ServiceManifestName="StudentPkg" ServiceManifestVersion="1.0.*" />
    </ServiceManifestImport>
    <DefaultServices>
       <Service Name="ClassroomFacade">
