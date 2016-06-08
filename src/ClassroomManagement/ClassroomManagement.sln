@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "ClassroomManagement", "ClassroomManagement\ClassroomManagement.sfproj", "{A55DDD05-BC34-4850-9948-D631D63C6DF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student", "Student\Student.csproj", "{792D1FEA-C39C-4688-AF41-AAD97A3087D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student.Interfaces", "Student.Interfaces\Student.Interfaces.csproj", "{C779E638-1033-4CC6-8FDE-55CF3B1C7F25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classroom", "Classroom\Classroom.csproj", "{03538A54-4CC7-4330-92F3-C7319D5BFB96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classroom.Interfaces", "Classroom.Interfaces\Classroom.Interfaces.csproj", "{FA8D5B00-1076-4D0C-87AB-2BB8047079A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A55DDD05-BC34-4850-9948-D631D63C6DF8}.Debug|x64.ActiveCfg = Debug|x64
+		{A55DDD05-BC34-4850-9948-D631D63C6DF8}.Debug|x64.Build.0 = Debug|x64
+		{A55DDD05-BC34-4850-9948-D631D63C6DF8}.Debug|x64.Deploy.0 = Debug|x64
+		{A55DDD05-BC34-4850-9948-D631D63C6DF8}.Release|x64.ActiveCfg = Release|x64
+		{A55DDD05-BC34-4850-9948-D631D63C6DF8}.Release|x64.Build.0 = Release|x64
+		{A55DDD05-BC34-4850-9948-D631D63C6DF8}.Release|x64.Deploy.0 = Release|x64
+		{792D1FEA-C39C-4688-AF41-AAD97A3087D7}.Debug|x64.ActiveCfg = Debug|x64
+		{792D1FEA-C39C-4688-AF41-AAD97A3087D7}.Debug|x64.Build.0 = Debug|x64
+		{792D1FEA-C39C-4688-AF41-AAD97A3087D7}.Release|x64.ActiveCfg = Release|x64
+		{792D1FEA-C39C-4688-AF41-AAD97A3087D7}.Release|x64.Build.0 = Release|x64
+		{C779E638-1033-4CC6-8FDE-55CF3B1C7F25}.Debug|x64.ActiveCfg = Debug|x64
+		{C779E638-1033-4CC6-8FDE-55CF3B1C7F25}.Debug|x64.Build.0 = Debug|x64
+		{C779E638-1033-4CC6-8FDE-55CF3B1C7F25}.Release|x64.ActiveCfg = Release|x64
+		{C779E638-1033-4CC6-8FDE-55CF3B1C7F25}.Release|x64.Build.0 = Release|x64
+		{03538A54-4CC7-4330-92F3-C7319D5BFB96}.Debug|x64.ActiveCfg = Debug|x64
+		{03538A54-4CC7-4330-92F3-C7319D5BFB96}.Debug|x64.Build.0 = Debug|x64
+		{03538A54-4CC7-4330-92F3-C7319D5BFB96}.Release|x64.ActiveCfg = Release|x64
+		{03538A54-4CC7-4330-92F3-C7319D5BFB96}.Release|x64.Build.0 = Release|x64
+		{FA8D5B00-1076-4D0C-87AB-2BB8047079A5}.Debug|x64.ActiveCfg = Debug|x64
+		{FA8D5B00-1076-4D0C-87AB-2BB8047079A5}.Debug|x64.Build.0 = Debug|x64
+		{FA8D5B00-1076-4D0C-87AB-2BB8047079A5}.Release|x64.ActiveCfg = Release|x64
+		{FA8D5B00-1076-4D0C-87AB-2BB8047079A5}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

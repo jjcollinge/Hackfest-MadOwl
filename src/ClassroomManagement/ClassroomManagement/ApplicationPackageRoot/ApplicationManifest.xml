@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ClassroomManagementType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <Parameters>
+      <Parameter Name="ClassroomActorService_PartitionCount" DefaultValue="10" />
+      <Parameter Name="ClassroomActorService_MinReplicaSetSize" DefaultValue="2" />
+      <Parameter Name="ClassroomActorService_TargetReplicaSetSize" DefaultValue="3" />
+      <Parameter Name="StudentActorService_PartitionCount" DefaultValue="10" />
+      <Parameter Name="StudentActorService_MinReplicaSetSize" DefaultValue="2" />
+      <Parameter Name="StudentActorService_TargetReplicaSetSize" DefaultValue="3" />
+   </Parameters>
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="ClassroomPkg" ServiceManifestVersion="1.0.0" />
+   </ServiceManifestImport>
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="StudentPkg" ServiceManifestVersion="1.0.0" />
+   </ServiceManifestImport>
+   <DefaultServices>
+      <Service Name="ClassroomActorService" GeneratedIdRef="1788255a-ee3c-44d9-8eea-b0b6bde4d530|Persisted">
+         <StatefulService ServiceTypeName="ClassroomActorServiceType" TargetReplicaSetSize="[ClassroomActorService_TargetReplicaSetSize]" MinReplicaSetSize="[ClassroomActorService_MinReplicaSetSize]">
+            <UniformInt64Partition PartitionCount="[ClassroomActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+         </StatefulService>
+      </Service>
+      <Service Name="StudentActorService" GeneratedIdRef="3705f06c-622f-4a82-a050-abba6360b940|Persisted">
+         <StatefulService ServiceTypeName="StudentActorServiceType" TargetReplicaSetSize="[StudentActorService_TargetReplicaSetSize]" MinReplicaSetSize="[StudentActorService_MinReplicaSetSize]">
+            <UniformInt64Partition PartitionCount="[StudentActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+         </StatefulService>
+      </Service>
+   </DefaultServices>
+</ApplicationManifest>
