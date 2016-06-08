@@ -1,6 +1,6 @@
-﻿#Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-#        -FilePath C:\@SourceControl\Github\MadOwl\ClassroomManagementARM\ClassroomManagementARM\Certs\madowlcert.pfx `
-#        -Password (ConvertTo-SecureString -String abcd123 -AsPlainText -Force)
+﻿Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+        -FilePath C:\dump\madowlcert.pfx `
+        -Password (ConvertTo-SecureString -String abcd123 -AsPlainText -Force)
 
 Connect-serviceFabricCluster -ConnectionEndpoint madowlkeyvault.westeurope.cloudapp.azure.com:19000 `
     -KeepAliveIntervalInSec 10 `

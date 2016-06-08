@@ -35,6 +35,7 @@
     <None Include="New-ServiceFabricClusterCertificate.ps1" />
     <None Include="readme.txt" />
     <None Include="Scripts\createvault.ps1" />
+    <None Include="Scripts\Secure Connection to Service Cluster.ps1" />
     <None Include="Scripts\SetupCI-ServicesFabricVSTS.ps1" />
     <None Include="Templates\azuredeploy.json" />
     <None Include="Templates\azuredeploy.parameters.json" />
