@@ -1,0 +1,51 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "value": "madowlkeyvault"
+    },
+    "fabricTcpGatewayPort": {
+      "value": 19000
+    },
+    "fabricHttpGatewayPort": {
+      "value": 19080
+    },
+    "adminUserName": {
+      "value": ""
+    },
+    "adminPassword": {
+      "value": "abcd123"
+    },
+    "loadBalancedAppPort1": {
+      "value": 80
+    },
+    "loadBalancedAppPort2": {
+      "value": 8081
+    },
+    "certificateStorevalue": {
+      "value": "My"
+    },
+    "certificateThumbprint": {
+      "value": "850A278CE7364C9E88B72F65FD38304F1137E61E"
+    },
+    "sourceVaultvalue": {
+      "value": "/subscriptions/bc0b4843-fb66-4fa1-9e1b-6dbc8ec156a4/resourceGroups/madowlsf/providers/Microsoft.KeyVault/vaults/madowlkeyvault"
+    },
+    "certificateUrlvalue": {
+      "value": "https://madowlkeyvault.vault.azure.net:443/secrets/madowlcert/6e137553919c4cf188a8562410c1522c"
+    },
+    "clusterProtectionLevel": {
+      "value": "EncryptAndSign"
+    },
+    "storageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "supportLogStorageAccountType": {
+      "value": "Standard_LRS"
+    },
+    "applicationDiagnosticsStorageAccountType": {
+      "value": "Standard_LRS"
+    }
+  }
+}
