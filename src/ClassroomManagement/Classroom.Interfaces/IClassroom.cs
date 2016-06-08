@@ -16,13 +16,13 @@ namespace Classroom.Interfaces
         Task<int> GetNumStepsAsync();
         Task SetNumStepsCountAsync(int numSteps);
         
-        Task<string> GetPresenter();
+        Task<string> GetPresenterAsync();
         Task SetPresenter(string presenter);
 
-        Task<IList<string>> GetStudents();
+        Task<IList<string>> GetStudentsAsync();
         Task SetStudents(IList<string> students);
 
-        Task RegisterStudent(string student);
+        Task RegisterStudentAsync(string student);
 
     }
 }

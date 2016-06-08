@@ -27,17 +27,17 @@ namespace Classroom
             return await this.StateManager.GetStateAsync<int>("NumSteps");
         }
 
-        public async Task<string> GetPresenter()
+        public async Task<string> GetPresenterAsync()
         {
             return await this.StateManager.GetStateAsync<string>("Presenter");
         }
 
-        public async Task<IList<string>> GetStudents()
+        public async Task<IList<string>> GetStudentsAsync()
         {
             return await this.StateManager.GetStateAsync<IList<string>>("Students");
         }
 
-        public async Task RegisterStudent(string student)
+        public async Task RegisterStudentAsync(string student)
         {
 
             var tempStudents = await this.StateManager.TryGetStateAsync<IList<string>>("Students");
@@ -94,6 +94,22 @@ namespace Classroom
             // Any serializable object can be saved in the StateManager.
             // For more information, see http://aka.ms/servicefabricactorsstateserialization
 
+            if (this.StateManager.ContainsStateAsync("NumSteps").Result)
+            {
+
+                // we have some state, this isn't a new actor
+
+
+            }
+            else
+            {
+
+                // we have no state, init it.
+                this.StateManager.AddStateAsync("NumSteps", 0);
+                this.StateManager.AddStateAsync("Students", new List<string>());
+                this.StateManager.AddStateAsync("Presenter", "");
+
+            }
 
             return this.StateManager.TryAddStateAsync("count", 0);
 
