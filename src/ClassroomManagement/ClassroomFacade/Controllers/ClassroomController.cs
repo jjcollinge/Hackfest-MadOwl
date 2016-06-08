@@ -65,6 +65,7 @@ namespace ClassroomFacade.Controllers
         public void Post([FromBody]ClassroomModel value)
         {
 
+            // Comment to trigger CI build 
             var ClassActor = ActorProxy.Create<IClassroom>(new ActorId(value.Id));
 
             ClassActor.SetPresenter(value.Presenter);
