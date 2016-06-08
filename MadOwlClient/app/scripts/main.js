@@ -1,1 +1,31 @@
-console.log('\'Allo \'Allo!');
+
+console.log("hwhoo hwhoo");
+
+document.getElementById("btn-join").addEventListener("click", function(){
+    $("#alerts").innerHTML ="";
+
+    var pin = document.getElementById('pin').value;
+    var username = document.getElementById('username').value;
+    
+    $.getJSON( "dummy.json", function( data ) {
+
+        console.log(pin);
+        console.log(data.PinCode);
+
+        if(pin == data.PinCode){
+            $('#notice-success').show();
+            setTimeout(function() { 
+                $('#notice-success').fadeOut(); 
+            }, 5000);
+            window.location.replace("userapp.html?pin="+data.PinCode+"&name="+username+"&hol="+data.Name+"&steps="+data.StepCount);
+        } else {
+            $('#notice-fail').show();
+            setTimeout(function() { 
+                $('#notice-fail').fadeOut(); 
+            }, 5000);
+        }
+
+    });
+
+});
+
