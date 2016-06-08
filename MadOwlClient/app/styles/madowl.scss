@@ -57,13 +57,12 @@ body {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #5cb85c;
 }
 
-code.owl { margin-top: 1em; background-color: transparent; color: #000; font-size: 3em; border: none; display: block; padding-left: 90px; overflow: hidden; }
+code.owl { display: none; margin-top: 1em; background-color: transparent; color: #000; font-size: 3em; border: none; display: block; padding-left: 90px; overflow: hidden; }
 
 #notice-success, #notice-fail { display: none; text-align: center; position: absolute; margin: 1em; top: 0; left: 0; width: 100%; }
-/*
+
 .rowitem { background-color: #fff; border: 1px solid #eee;}
 .rowitem:first-of-type { border-radius: .7em .7em 0 0; }
 .rowitem:last-of-type { border-radius: 0 0 .7em .7em; }
 
 .rowitem .glyphicon { font-size: 1.6em; }
-*/
