@@ -21,6 +21,10 @@ namespace Student
     [StatePersistence(StatePersistence.Persisted)]
     internal class Student : Actor, IStudent
     {
+
+        public string Username { get; set; }
+        public int CurrentStep { get; set; }
+
         /// <summary>
         /// This method is called whenever an actor is activated.
         /// An actor is activated the first time any of its methods are invoked.
@@ -56,6 +60,27 @@ namespace Student
             // Requests are not guaranteed to be processed in order nor at most once.
             // The update function here verifies that the incoming count is greater than the current count to preserve order.
             return this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
+        }
+
+        public Task<string> GetUsernameAsync()
+        {
+            return this.StateManager.GetStateAsync<string>("Username");
+        }
+
+        public Task SetUsernameAsync(string username)
+        {
+            return this.StateManager.SetStateAsync<string>("Username", username);
+        }
+
+        public Task<int> GetCurrentStepAsync()
+        {
+            return this.StateManager.GetStateAsync<int>("CurrentStep");
+        }
+
+        public Task SetCurrentStepAsync(int currentStep)
+        {
+            return this.StateManager.SetStateAsync<int>("CurrentStep", currentStep);
+
         }
     }
 }
