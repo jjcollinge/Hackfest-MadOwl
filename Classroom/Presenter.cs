@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Classroom.Interfaces
+namespace Classroom
 {
-    public interface IClassroom
+    class Presenter
     {
-      
+        public string Username { get; set; }
     }
 }
