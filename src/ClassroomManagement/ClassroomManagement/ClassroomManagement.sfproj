@@ -14,8 +14,12 @@
     <None Include="Scripts\Deploy-FabricApplication.ps1" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassroomFacade\ClassroomFacade.csproj" />
     <ProjectReference Include="..\Classroom\Classroom.csproj" />
     <ProjectReference Include="..\Student\Student.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="madowlcert.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Service Fabric Tools\Microsoft.VisualStudio.Azure.Fabric.ApplicationProject.targets" />
 </Project>
