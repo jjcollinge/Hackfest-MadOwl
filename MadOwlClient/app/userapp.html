@@ -7,43 +7,34 @@
     <title>MadOwl</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
 
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/simple-sidebar.css">
+    
     <!-- endbuild -->
     
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body>
-    <!--[if lt IE 10]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  
+  <body id="init" onload="loadClassData()">
     
     <div class="container">
-
-      <div class="jumbotron">
+      <div class="jumbotron">  
+         
+        <h2 id="className"></h2><br/>   
         
-          <img src="images/aintevenmad.png" alt="" />
-          <br /><br />
-          <form class="form-pin">
-            <input type="text" placeholder="Classroom PIN" class="input-lg" /><br /><br />
-            <input type="submit" value="Join" class="btn btn-lg btn-success" />          
-          </form>
-          <br /> 
-          <form class="form-username">
-            <input type="text" placeholder="Name" class="input-lg" /><br /><br />
-            <input type="submit" value="Start" class="btn btn-lg btn-success" />          
-          </form>
+        <div id="waypointContainer"></div>
+        
+        <div id="resultDivContainer"></div>  
       </div>
-
+    </div>   
+    
+    
+    
+    
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
@@ -68,5 +59,98 @@
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
+    
+    
+    <script>
+      
+      var classPIN = getQueryVariable("pin");
+      var username = getQueryVariable("user");
+      var hol = getQueryVariable("hol");
+      var numsteps = getQueryVariable("steps");  
+      
+      function loadClassData()
+      {
+        var className = document.getElementById("className");
+        className.innerHTML = hol;
+
+        for(var i=0; i < numsteps; i++){
+          addWayPoint(i);
+        }       
+      }
+      
+      function getQueryVariable(variable)
+      {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+        }
+        return(false);
+      }     
+
+      function addWayPoint(i)
+      {
+        var step = i+1;
+        
+        var waypointContainer = document.getElementById("waypointContainer");
+        
+        var divRow = document.createElement("div");
+        var divWaypoint = document.createElement("div");
+        var divFlag = document.createElement("div");
+        var divComplete = document.createElement("div");
+        
+        
+        divRow.setAttribute("id", "divRow_"+step);
+        divRow.setAttribute("class", "row");
+        
+        divWaypoint.setAttribute("id", "divWaypoint_"+step);
+        divWaypoint.setAttribute("class", "col-sm-6 col-md-6 col-lg-6");
+        
+        divFlag.setAttribute("id", "divFlag_"+step);
+        divFlag.setAttribute("class", "col-sm-3 col-md-3 col-lg-3");
+        
+        divComplete.setAttribute("id", "divComplete_"+step);
+        divComplete.setAttribute("class", "col-sm-3 col-md-3 col-lg-3");
+               
+        waypointContainer.appendChild(divRow);
+        divRow.appendChild(divWaypoint);
+        divRow.appendChild(divFlag);
+        divRow.appendChild(divComplete);       
+        
+        document.getElementById("divWaypoint_"+step).innerHTML = "<p> Step " + step + " </p>";
+        //TODO: change # to correct call needed to set the flag for current step
+        document.getElementById("divFlag_"+step).innerHTML = '<a href="#"><span class="glyphicon glyphicon-flag flag"></span></a>';
+        document.getElementById("divComplete_"+step).innerHTML = '<a href="#" onclick="postStatus(' + step + ');return false;"><span class="glyphicon glyphicon-ok complete"></span></a>';        
+      }
+      
+      function postStatus(currentStep)
+      {
+        var resultDiv = $("#resultDivContainer");
+        
+        $.ajax({
+            url: "https://example.com/api/",
+            type: "POST",
+            data: { pin: pin, name: username, currentStep: currentStep },
+            dataType: "json",
+            success: function (result) {
+                switch (result) {
+                    case true:
+                        processResponse(result);
+                        break;
+                    default:
+                        resultDiv.html(result);
+                }
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+            }
+        });
+      }
+      
+
+    </script>
+    
   </body>
 </html>

@@ -25,10 +25,7 @@
   <Import Condition=" Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets') " Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Deployment\1.1\DeploymentProject.targets" />
   <!-- vertag<:>end -->
   <ItemGroup>
-    <Folder Include="Certs\" />
-    <Folder Include="Templates\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Certs\madowlcert.pfx" />
     <None Include="Deployment.targets">
       <Visible>False</Visible>
     </None>
@@ -38,8 +35,9 @@
     <None Include="New-ServiceFabricClusterCertificate.ps1" />
     <None Include="readme.txt" />
     <None Include="Scripts\createvault.ps1" />
-    <None Include="Scripts\madowlcert.pfx" />
     <None Include="Scripts\SetupCI-ServicesFabricVSTS.ps1" />
+    <None Include="Templates\azuredeploy.json" />
+    <None Include="Templates\azuredeploy.parameters.json" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
 </Project>

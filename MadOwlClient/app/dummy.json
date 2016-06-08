@@ -1,0 +1,20 @@
+{
+  "Name": "Service Fabric DXNext",
+  "StepCount": 12,
+  "PinCode": 1234,
+  "ContentUri": "https://github.com/jjcollinge/MadOwl",
+  "Students": [
+    {
+      "Name": "John Doe",
+      "CurrentStep": 1
+    },
+    {
+      "Name": "Jane Doe",
+      "CurrentStep": 4
+    },
+    {
+      "Name": "Benny Doe",
+      "CurrentStep": 3
+    }
+  ]
+} 
